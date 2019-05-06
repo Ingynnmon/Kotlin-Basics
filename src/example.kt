@@ -67,6 +67,37 @@ fun main(args : Array<String>){
     println("Contains random: ${str1.contains("random")}")
 
     //arrays
-    
+    var myArray= arrayOf(1,1.23,"Dog")
+
+    println(myArray[2])
+
+    myArray[1]=3.14
+
+    println("Array Length: ${myArray.size}")
+    println("Dog in Array: ${myArray.contains("Dog")}")
+
+    var partArray=myArray.copyOfRange(0,1)
+    println("First: ${str1.first()}")
+    println("Dog Index: ${myArray.indexOf("Dog")}")
+
+    var squareArr=Array(5,{x-> x*x})
+    println(squareArr[2])
+
+    var arr2:Array<Int> = arrayOf(1,2,3);
+
+    //ranges
+    val oneToten=1..10
+    val alpha="A".."Z"
+    println("R in Alpha: ${"R" in alpha}")
+    val tenToOne=10.downTo(1)
+    val twoTo20=2.rangeTo(20)
+    val range3=oneToten.step(3)
+    for(x in range3) println("range3 : $x")
+    for(x in tenToOne.reversed()) println("Reverse: $x")
+
+
+
+
+
 
 }
