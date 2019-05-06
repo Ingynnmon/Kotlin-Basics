@@ -1,4 +1,4 @@
-
+import java.util.Random
 fun main(args : Array<String>){
     println("Hello World")
 
@@ -95,9 +95,93 @@ fun main(args : Array<String>){
     for(x in range3) println("range3 : $x")
     for(x in tenToOne.reversed()) println("Reverse: $x")
 
+    //conditionals
+    val mAge=8
+    if(mAge<5){
+        println("Go to Preschool")
+    }else if(mAge==5){
+        println("Go to Kindergarten")
+    }else if((mAge>5)&&(mAge<=17)){
+        val grade=mAge-5
+        println("Go to Grade: $grade")
+    }else{
+        println("Go to College")
+    }
 
+    when(mAge){
+        0,1,2,3,4 -> println("Go to Preschool")
+        5 -> println("Go to Kindergarten")
+        in 6..17 ->{
+            val grade=mAge-5
+            println("Go to Grade: $grade")
+        }
+        else -> println("Go to collage")
+    }
 
+    //looping
+    for(x in 1..10){
+        println("Loop: $x")
+    }
+    val rand=Random()
+    val magicNum=rand.nextInt(50)+1
 
+    var guess=0
+    while(magicNum !=guess){
+        guess +=1
+    }
+    println("Magic Number was $guess")
 
+    for(x in 1..20){
+        if(x%2==0){
+            continue
+        }
+        println("Odd: $x");
+        if(x==15) break
+    }
+    var arr3:Array<Int> = arrayOf(3,6,9)
+    for(i in arr3.indices){
+        println("Multi 3: ${arr3[i]}")
+    }
+    for((index,value)in arr3.withIndex()){
+        println("Index : $index Value: $value")
+    }
 
+    //functions
+    fun add(num1:Int,num2:Int):Int=num1+num2
+    println("5+4 is ${add(5,4)}")
+    fun subtract(num1:Int,num2:Int):Int=num1-num2
+    println("5-4 is ${subtract(5,4)}")
+
+    println("4-5 = ${subtract(num2=5,num1=4)}")
+
+    fun Hello(name:String):Unit=println("Hello $name")
+    Hello("Ingynn")
+    val (two,three)=nextTwo(1)
+    println("1 $two $three")
+
+    println("Sum = ${getSum(1,2,3,4)}")
+
+    val multiply={num1:Int,num2:Int->num1*num2}
+
+    println("5 * 3 = ${multiply(5,3)}")
+
+    println("5! = ${fact(5)}")
+
+}
+fun nextTwo(num:Int):Pair<Int,Int>{
+    return Pair(num+1,num+2)
+}
+
+fun getSum(vararg nums:Int):Int{
+    var sum=0
+    nums.forEach { n-> sum+=n}
+    return sum
+}
+
+fun fact(x:Int):Int{
+    tailrec fun factTail(y:Int,z:Int):Int{
+        if(y==0) return z
+        else return factTail(y-1,y*z)
+    }
+    return factTail(x,1)
 }
