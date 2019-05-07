@@ -3,7 +3,7 @@ fun main(args: Array<String>){
     spot.getInfo()
 
     val fish=Fish("fish",true)
-    fish.swim(10.0,0)
+    fish.swim(10.0)
 }
 open class Animal2(val name:String,
                    var height:Double,
